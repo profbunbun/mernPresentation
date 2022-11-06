@@ -2,6 +2,7 @@ let express = require('express');
 let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
+require('dotenv').config()
 // Express Route
 const studentRoute = require('../backend/routes/student.route')
 // Accessing the path module
@@ -15,7 +16,7 @@ app.get("*", function (request, response) {
 });
 // Connecting mongoDB Database
 mongoose
-  .connect('mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
+  .connect(process.env.MONGODB_URI||'mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
