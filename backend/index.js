@@ -9,10 +9,10 @@ const studentRoute = require('../backend/routes/student.route')
 const path = require("path");
 
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./build")));
+app.use(express.static(path.resolve(__dirname, "../build")));
 // Step 2:
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./build", "index.html"));
+  response.sendFile(path.resolve(__dirname, "../build", "index.html"));
 });
 // Connecting mongoDB Database
 mongoose
