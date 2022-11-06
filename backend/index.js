@@ -4,6 +4,15 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 // Express Route
 const studentRoute = require('../backend/routes/student.route')
+// Accessing the path module
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./build", "index.html"));
+});
 // Connecting mongoDB Database
 mongoose
   .connect('mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
