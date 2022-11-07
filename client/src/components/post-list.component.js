@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import PostTableRow from './PostTableRow';
+import baseUrl from "./baseurl";
+// const { data } = await Axios.post(baseUrl + "/post-result", { val });
 
 export default class PostList extends Component {
   constructor(props) {
@@ -11,7 +13,7 @@ export default class PostList extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/posts/')
+    axios.get(baseUrl +'/posts/')
       .then(res => {
         this.setState({
           posts: res.data
