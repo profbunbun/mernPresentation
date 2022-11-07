@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "node server.js && npm start ",
-    "build": "npm run build",
+    "build": "npm build",
     "install": "npm install",
     "heroku-postbuild": "npm run install && npm run build",
     "test": "react-scripts test",
