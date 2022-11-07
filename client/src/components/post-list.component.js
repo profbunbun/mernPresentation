@@ -13,7 +13,7 @@ export default class PostList extends Component {
   }
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
-      axios.get('https://mernku.herokuapp.com:4000/posts/' )
+      axios.get('https://mernku.herokuapp.com:'+process.env.PORT+'/posts/' )
       .then(res => {
         this.setState({
           posts: res.data
