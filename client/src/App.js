@@ -7,9 +7,12 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import CreateStudent from './components/create-student.component'
+import CreatePost from './components/create-post.component'
 import EditStudent from './components/edit-student.component'
+import EditPost from './components/edit-post.component'
 import StudentList from './components/student-list.component'
+import PostList from './components/post-list.component'
+import CreateProfile from './components/create-profile.component'
 function App() {
   return (
     <div className="App">
@@ -17,20 +20,30 @@ function App() {
         <header className="App-header">
           <Navbar bg="dark" variant="dark">
             <Container>
-              <Navbar.Brand>
-                <Link to={'/create-student'} className="nav-link">
-                  React MERN Stack App
+            <Navbar.Brand>
+                <Link to={'/create-profile'} className="nav-link">
+                  App working title
                 </Link>
               </Navbar.Brand>
               <Nav className="justify-content-end">
+              <Nav>
+                  <Link to={'/create-profile'} className="nav-link">
+                    Create Profile
+                  </Link>
+                </Nav>
                 <Nav>
-                  <Link to={'/create-student'} className="nav-link">
-                    Create Student
+                  <Link to={'/create-post'} className="nav-link">
+                    Create Job Post
+                  </Link>
+                </Nav>
+                <Nav>
+                  <Link to={'/post-list'} className="nav-link">
+                    Job List
                   </Link>
                 </Nav>
                 <Nav>
                   <Link to={'/student-list'} className="nav-link">
-                    Student List
+                    Profile List
                   </Link>
                 </Nav>
               </Nav>
@@ -45,12 +58,22 @@ function App() {
                   <Route
                     exact
                     path="/"
-                    component={(props) => <CreateStudent {...props} />}
+                    component={(props) => <CreateProfile {...props} />}
                   />
                   <Route
                     exact
-                    path="/create-student"
-                    component={(props) => <CreateStudent {...props} />}
+                    path="/create-profile"
+                    component={(props) => <CreateProfile {...props} />}
+                  />
+                   <Route
+                    exact
+                    path="/create-post"
+                    component={(props) => <CreatePost {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/edit-post"
+                    component={(props) => <EditPost {...props} />}
                   />
                   <Route
                     exact
@@ -61,6 +84,11 @@ function App() {
                     exact
                     path="/student-list"
                     component={(props) => <StudentList {...props} />}
+                  />
+                   <Route
+                    exact
+                    path="/post-list"
+                    component={(props) => <PostList {...props} />}
                   />
                 </Switch>
               </div>

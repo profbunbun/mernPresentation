@@ -5,11 +5,12 @@ let bodyParser = require('body-parser');
 require('dotenv').config()
 // Express Route
 const studentRoute = require('./routes/student.route')
+const postRoute = require('./routes/post.route')
 const path = require('path')
 
 // Connecting mongoDB Database
 mongoose
-  .connect(process.env.MONGODB_URL||'mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
+  .connect(process.env.MONGODB_URI||'mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -35,6 +36,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 app.use('/students', studentRoute)
+app.use('/posts', postRoute)
 
 
 
