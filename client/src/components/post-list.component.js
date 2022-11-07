@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import PostTableRow from './PostTableRow';
-
+const url = window.location.origin;
 
 export default class PostList extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class PostList extends Component {
     };
   }
   componentDidMount() {
-    axios.get('/posts')
+    axios.get(url+'/posts')
       .then(res => {
         this.setState({
           posts: res.data
