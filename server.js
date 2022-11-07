@@ -34,7 +34,11 @@ if (process.env.NODE_ENV === 'production') {
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(cors());
+let corsOptions = {
+  origin: ['https://localhost:4000/posts/' ,baseUrl],
+};
+
+app.use(cors(corsOptions));
 app.use('/students', studentRoute)
 app.use('/posts', postRoute)
 
