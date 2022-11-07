@@ -13,7 +13,7 @@ export default class PostList extends Component {
   }
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
-      axios.get('/posts/' )
+      axios.get('posts/' )
       .then(res => {
         this.setState({
           posts: res.data
