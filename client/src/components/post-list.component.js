@@ -22,20 +22,20 @@ export default class PostList extends Component {
       .catch((error) => {
         console.log(error);
       })
-    }}
-    // else{
-    //   axios.get('http://localhost:4000/posts/' )
-    //   .then(res => {
-    //     this.setState({
-    //       posts: res.data
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   })
-    // }
+    }
+    else{
+      axios.get('http://localhost:4000/posts/' )
+      .then(res => {
+        this.setState({
+          posts: res.data
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
     
-  //}
+  }
   DataTable() {
     return this.state.posts.map((res, i) => {
       return <PostTableRow obj={res} key={i} />;

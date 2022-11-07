@@ -11,6 +11,14 @@ const baseUrl = process.env.NODE_ENV === "production"
 ? "https://mernku.herokuapp.com"
 : "http://localhost:4000";
 
+const app = express();
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req,res) => {
+      res.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
+  })
+
+}
 // Connecting mongoDB Database
 mongoose
   .connect(process.env.MONGODB_URI||'mongodb+srv://test:test@cluster0.nfmkma3.mongodb.net/?retryWrites=true&w=majority')
@@ -20,19 +28,10 @@ mongoose
   .catch((err) => {
     console.error('Error connecting to mongo', err.reason)
   })
-const app = express();
 
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
 
-  const path = require('path');
-  app.get('*', (req,res) => {
-      res.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
-  })
-
-}
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -41,8 +40,8 @@ let corsOptions = {
   origin: ['https://localhost:4000' ,baseUrl],
 };
 
-app.use(cors());
-//app.use(cors(corsOptions));
+//app.use(cors());
+app.use(cors(corsOptions));
 app.use('/students', studentRoute)
 app.use('/posts', postRoute)
 
