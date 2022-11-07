@@ -42,6 +42,7 @@ let corsOptions = {
 };
 
 app.use(cors());
+//app.use(cors(corsOptions));
 app.use('/students', studentRoute)
 app.use('/posts', postRoute)
 

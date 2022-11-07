@@ -12,7 +12,8 @@ export default class PostList extends Component {
     };
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/posts/' || baseUrl+'/posts')
+    if (process.env.NODE_ENV === 'production') {
+      axios.get('/posts/' )
       .then(res => {
         this.setState({
           posts: res.data
@@ -21,6 +22,18 @@ export default class PostList extends Component {
       .catch((error) => {
         console.log(error);
       })
+    }else{
+      axios.get('http://localhost:4000/posts/' )
+      .then(res => {
+        this.setState({
+          posts: res.data
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+    
   }
   DataTable() {
     return this.state.posts.map((res, i) => {
