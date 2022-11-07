@@ -8,7 +8,7 @@ export default class PostTableRow extends Component {
         this.deletePost = this.deletePost.bind(this);
     }
     deletePost() {
-        axios.delete('http://localhost:4000/posts/delete-post/' + this.props.obj._id)
+        axios.delete('/posts/delete-post/' + this.props.obj._id)
             .then((res) => {
                 console.log('Job post successfully deleted!')
             }).catch((error) => {

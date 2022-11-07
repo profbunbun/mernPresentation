@@ -63,9 +63,10 @@ export default class CreatePost extends Component {
       maxSal: this.state.maxSal,
       minSal: this.state.minSal
     };
-    axios.post('http://localhost:4000/posts/create-post', PostObject)
+    axios.post('posts/create-post', PostObject)
       .then(res => console.log(res.data));
-    this.setState({     street: '',
+    this.setState({     
+    street: '',
     city: '',
     state: '',
     zip:'',

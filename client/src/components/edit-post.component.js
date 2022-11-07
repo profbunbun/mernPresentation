@@ -27,7 +27,7 @@ export default class EditPost extends Component {
     }
   }
   componentDidMount() {
-    axios.get('http://localhost:4000/posts/edit-post/' + this.props.match.params.id)
+    axios.get('posts/edit-post/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           street: res.data.street,
@@ -80,7 +80,7 @@ export default class EditPost extends Component {
       maxSal: this.state.rollno,
       minSal: this.state.rollno
     };
-    axios.put('http://localhost:4000/posts/update-post/' + this.props.match.params.id, studentObject)
+    axios.put('posts/update-post/' + this.props.match.params.id, studentObject)
       .then((res) => {
         console.log(res.data)
         console.log('Job Posting successfully updated')

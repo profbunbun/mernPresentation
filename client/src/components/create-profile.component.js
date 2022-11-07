@@ -33,7 +33,7 @@ export default class CreateProfile extends Component {
       email: this.state.email,
       rollno: this.state.rollno
     };
-    axios.post('http://localhost:4000/profile/create-profile', ProfileObject)
+    axios.post('/profile/create-profile', ProfileObject)
       .then(res => console.log(res.data));
     this.setState({ name: '', email: '', rollno: '' })
   }

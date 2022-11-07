@@ -18,7 +18,7 @@ mongoose
     console.error('Error connecting to mongo', err.reason)
   })
 const app = express();
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client','build')));
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
