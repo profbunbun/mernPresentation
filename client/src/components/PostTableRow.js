@@ -18,14 +18,14 @@ export default class PostTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.street}</td>
-                <td>{this.props.obj.city}</td>
-                <td>{this.props.obj.state}</td>
-                <td>{this.props.obj.zip}</td>
+                <td>{this.props.obj.location}</td>
+                <td>{this.props.obj.jobLocationCity}</td>
+                <td>{this.props.obj.jobLocationState}</td>
+                <td>{this.props.obj.jobLocationPostal}</td>
                 <td>{this.props.obj.company}</td>
                 <td>{this.props.obj.jobTitle}</td>
-                <td>{this.props.obj.maxSal}</td>
-                <td>{this.props.obj.minSal}</td>
+                <td>{this.props.obj.maxSalary}</td>
+                <td>{this.props.obj.minSalary}</td>
                 <td>
                     <Link className="edit-link" to={"/edit-post/" + this.props.obj._id}>
                         Edit

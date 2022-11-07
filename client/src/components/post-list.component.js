@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import PostTableRow from './PostTableRow';
-import baseUrl from "./baseurl";
 
 export default class PostList extends Component {
   constructor(props) {
@@ -12,28 +11,16 @@ export default class PostList extends Component {
     };
   }
   componentDidMount() {
-    if (process.env.NODE_ENV === 'production') {
-      axios.get('https://mernku.herokuapp.com:'+process.env.PORT+'/posts/' )
-      .then(res => {
-        this.setState({
-          posts: res.data
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
-    else{
-      axios.get('http://localhost:4000/posts/' )
-      .then(res => {
-        this.setState({
-          posts: res.data
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
+ 
+    axios.get('http://localhost:4000/posts/' )
+    .then(res => {
+      this.setState({
+        posts: res.data
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
     
   }
   DataTable() {

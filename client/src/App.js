@@ -8,11 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import CreatePost from './components/create-post.component'
-import EditStudent from './components/edit-student.component'
+
 import EditPost from './components/edit-post.component'
-import StudentList from './components/student-list.component'
+
 import PostList from './components/post-list.component'
 import CreateProfile from './components/create-profile.component'
+import ProfileList from './components/profile-list.component'
+import Login from './components/login.component'
 function App() {
   return (
     <div className="App">
@@ -37,12 +39,17 @@ function App() {
                   </Link>
                 </Nav>
                 <Nav>
+                  <Link to={'/login'} className="nav-link">
+                    Login
+                  </Link>
+                </Nav>
+                <Nav>
                   <Link to={'/post-list'} className="nav-link">
                     Job List
                   </Link>
                 </Nav>
                 <Nav>
-                  <Link to={'/student-list'} className="nav-link">
+                  <Link to={'/profile-list'} className="nav-link">
                     Profile List
                   </Link>
                 </Nav>
@@ -72,24 +79,25 @@ function App() {
                   />
                   <Route
                     exact
-                    path="/edit-post"
-                    component={(props) => <EditPost {...props} />}
-                  />
-                  <Route
-                    exact
-                    path="/edit-student/:id"
-                    component={(props) => <EditStudent {...props} />}
-                  />
-                  <Route
-                    exact
-                    path="/student-list"
-                    component={(props) => <StudentList {...props} />}
+                    path="/login"
+                    component={(props) => <Login {...props} />}
                   />
                    <Route
                     exact
                     path="/post-list"
                     component={(props) => <PostList {...props} />}
                   />
+                  <Route
+                    exact
+                    path="/profile-list"
+                    component={(props) => <ProfileList {...props} />}
+                  />
+                  <Route
+                    exact
+                    path="/edit-post/:id"
+                    component={(props) => <EditPost {...props} />}
+                  />
+               
                 </Switch>
               </div>
             </Col>

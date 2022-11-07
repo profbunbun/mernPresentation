@@ -45,28 +45,28 @@ export default class EditPost extends Component {
       })
   }
   onChangePostStreet(e) {
-    this.setState({ name: e.target.value })
+    this.setState({ street: e.target.value })
   }
   onChangePostCity(e) {
-    this.setState({ email: e.target.value })
+    this.setState({ city: e.target.value })
   }
   onChangePostState(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ state: e.target.value })
   }
   onChangePostZip(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ zip: e.target.value })
   }
   onChangePostCompany(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ company: e.target.value })
   }
   onChangePostJobTitle(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ jobTitle: e.target.value })
   }
  onChangePostMaxSal(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ maxSal: e.target.value })
   }
   onChangePostMinSal(e) {
-    this.setState({ Phone: e.target.value })
+    this.setState({ minSal: e.target.value })
   }
   onSubmit(e) {
     e.preventDefault()
@@ -94,20 +94,43 @@ export default class EditPost extends Component {
   render() {
     return (<div className="form-wrapper">
       <Form onSubmit={this.onSubmit}>
-        <Form.Group controlId="Name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} />
+        <Form.Group controlId="Street">
+          <Form.Label>Street</Form.Label>
+          <Form.Control type="text" value={this.state.street} onChange={this.onChangePostStreet} />
         </Form.Group>
-        <Form.Group controlId="Email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={this.state.email} onChange={this.onChangeStudentEmail} />
+        <Form.Group controlId="City">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="text" value={this.state.city} onChange={this.onChangePostCity} />
         </Form.Group>
-        <Form.Group controlId="Name">
-          <Form.Label>Roll No</Form.Label>
-          <Form.Control type="text" value={this.state.rollno} onChange={this.onChangeStudentRollno} />
+        <Form.Group controlId="State">
+          <Form.Label>State</Form.Label>
+          <Form.Control type="text" value={this.state.state} onChange={ this.onChangePostState} />
         </Form.Group>
-        <Button variant="danger" size="lg" block="block" type="submit">
-          Update Post
+
+        <Form.Group controlId="Zip">
+          <Form.Label>Zip</Form.Label>
+          <Form.Control type="text" value={this.state.zip} onChange={this.onChangePostZip} />
+        </Form.Group>
+
+        <Form.Group controlId="Company">
+          <Form.Label>Company</Form.Label>
+          <Form.Control type="text" value={this.state.company} onChange={this.onChangePostCompany} />
+        </Form.Group>
+        <Form.Group controlId="Job Title">
+          <Form.Label>Job Title</Form.Label>
+          <Form.Control type="text" value={this.state.jobTitle} onChange={this.onChangePostJobTitle} />
+        </Form.Group>
+        <Form.Group controlId="Max Salary">
+          <Form.Label>Max Salary</Form.Label>
+          <Form.Control type="text" value={this.state.maxSal} onChange={this.onChangePostMaxSal} />
+        </Form.Group>
+        <Form.Group controlId="Minimum Salary">
+          <Form.Label>Minimun Salary</Form.Label>
+          <Form.Control type="text" value={this.state.minSal} onChange={this.onChangePostMinSal} />
+        </Form.Group>
+
+        <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
+         Edit Post
         </Button>
       </Form>
     </div>);

@@ -8,13 +8,13 @@ export default class CreateProfile extends Component {
     // Setting up functions
     this.onChangeProfileName = this.onChangeProfileName.bind(this);
     this.onChangeProfileEmail = this.onChangeProfileEmail.bind(this);
-    this.onChangeProfileRollno = this.onChangeProfileRollno.bind(this);
+    this.onChangeProfilePassword = this.onChangeProfilePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     // Setting up state
     this.state = {
       name: '',
       email: '',
-      rollno: ''
+      password: ''
     }
   }
   onChangeProfileName(e) {
@@ -23,19 +23,19 @@ export default class CreateProfile extends Component {
   onChangeProfileEmail(e) {
     this.setState({ email: e.target.value })
   }
-  onChangeProfileRollno(e) {
-    this.setState({ Phone: e.target.value })
+  onChangeProfilePassword(e) {
+    this.setState({ password: e.target.value })
   }
   onSubmit(e) {
     e.preventDefault()
-    const ProfileObject = {
+    const profileObject = {
       name: this.state.name,
       email: this.state.email,
-      rollno: this.state.rollno
+      password: this.state.password
     };
-    axios.post('/profile/create-profile', ProfileObject)
+    axios.post('http://localhost:4000/profiles/create-profile', profileObject)
       .then(res => console.log(res.data));
-    this.setState({ name: '', email: '', rollno: '' })
+    this.setState({ name: '', email: '', password: '' })
   }
   render() {
     return (<div className="form-wrapper">
@@ -46,11 +46,11 @@ export default class CreateProfile extends Component {
         </Form.Group>
         <Form.Group controlId="Email">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={this.state.email} onChange={this.onChangeProfileEmail} />
+          <Form.Control type="text" value={this.state.email} onChange={this.onChangeProfileEmail} />
         </Form.Group>
-        <Form.Group controlId="Name">
-          <Form.Label>Phone No</Form.Label>
-          <Form.Control type="text" value={this.state.rollno} onChange={this.onChangeProfileRollno} />
+        <Form.Group controlId="Password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="text" value={this.state.password} onChange={this.onChangeProfilePassword} />
         </Form.Group>
         <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
           Create Profile

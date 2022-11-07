@@ -6,6 +6,9 @@ let profileSchema = new Schema({
   },
   email: {
     type: String
+  },
+  password: {
+    type: String
   }
 }, {
     collection: 'profiles'
