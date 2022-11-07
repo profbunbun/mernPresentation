@@ -15,7 +15,7 @@ router.route('/create-post').post((req, res, next) => {
   })
 });
 // READ Students
-router.route('/*').get((req, res) => {
+router.route('/').get((req, res) => {
   postSchema.find((error, data) => {
     if (error) {
       return next(error)

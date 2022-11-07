@@ -7,6 +7,9 @@ require('dotenv').config()
 const studentRoute = require('./routes/student.route')
 const postRoute = require('./routes/post.route')
 const path = require('path')
+const baseUrl = process.env.NODE_ENV === "production"
+? "https://mernku.herokuapp.com"
+: "http://localhost:4000";
 
 // Connecting mongoDB Database
 mongoose
@@ -35,10 +38,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 let corsOptions = {
-  origin: ['https://localhost:4000/posts/' ,baseUrl],
+  origin: ['https://localhost:4000' ,baseUrl],
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use('/students', studentRoute)
 app.use('/posts', postRoute)
 

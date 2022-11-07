@@ -12,7 +12,7 @@ export default class PostList extends Component {
     };
   }
   componentDidMount() {
-    axios.get('https://localhost:4000/posts/' || baseUrl+'/posts')
+    axios.get('http://localhost:4000/posts/' || baseUrl+'/posts')
       .then(res => {
         this.setState({
           posts: res.data
