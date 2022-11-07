@@ -6,7 +6,7 @@ require('dotenv').config()
 // Express Route
 const postRoute = require('./routes/post.route')
 const loginRoute = require('./routes/login.route')
-const profileRoute = require('./routes/profile.route')
+const profRoute = require('./routes/profile.route')
 const path = require('path')
 const app = express();
 // const baseUrl = process.env.NODE_ENV === "production"
@@ -42,8 +42,8 @@ app.use(bodyParser.json());
 
 app.use(cors());
 //app.use(cors(corsOptions));
-app.use('/login', loginRoute);
-app.use('/profiles', profileRoute);
+app.use('/logins', loginRoute);
+app.use('/profiles', profRoute);
 app.use('/posts', postRoute);
 
 // PORT

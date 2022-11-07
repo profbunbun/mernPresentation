@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-let profileSchema = new Schema({
+let profSchema = new Schema({
   name: {
     type: String
   },
@@ -13,4 +13,4 @@ let profileSchema = new Schema({
 }, {
     collection: 'profiles'
   })
-module.exports = mongoose.model('Profile', profileSchema)
+module.exports = mongoose.model('Prof', profSchema)

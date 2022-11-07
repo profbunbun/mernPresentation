@@ -50,7 +50,7 @@ export default class CreateProfile extends Component {
         </Form.Group>
         <Form.Group controlId="Password">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="text" value={this.state.password} onChange={this.onChangeProfilePassword} />
+          <Form.Control type="password" value={this.state.password} onChange={this.onChangeProfilePassword} />
         </Form.Group>
         <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
           Create Profile

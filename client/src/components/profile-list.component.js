@@ -7,20 +7,21 @@ export default class ProfileList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      profiles: []
+      profiles:[]
     };
   }
   componentDidMount() {
-    axios.get('https://localhost:4000/profiles/' )
+    axios.get('http://localhost:4000/profiles/' )
     .then(res => {
       this.setState({
-        posts: res.data
+        profiles: res.data
       });
     })
     .catch((error) => {
       console.log(error);
     })
   }
+
   DataTable() {
     return this.state.profiles.map((res, i) => {
       return <ProfileTableRow obj={res} key={i} />;
@@ -34,7 +35,7 @@ export default class ProfileList extends Component {
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Pasword</th>
+            <th>Password</th>
             <th>Action</th>
           </tr>
         </thead>

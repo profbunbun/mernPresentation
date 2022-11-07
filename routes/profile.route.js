@@ -2,10 +2,10 @@ let mongoose = require('mongoose'),
   express = require('express'),
   router = express.Router();
 // Profile Model
-let profileSchema = require('../Models/Profile');
+let profSchema = require('../Models/Prof');
 // CREATE Profile
 router.route('/create-profile').post((req, res, next) => {
-  profileSchema.create(req.body, (error, data) => {
+  profSchema.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -16,7 +16,7 @@ router.route('/create-profile').post((req, res, next) => {
 });
 // READ Profiles
 router.route('/').get((req, res) => {
-  profileSchema.find((error, data) => {
+  profSchema.find((error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -26,7 +26,7 @@ router.route('/').get((req, res) => {
 })
 // Get Single Profile
 router.route('/edit-profile/:id').get((req, res) => {
-  profileSchema.findById(req.params.id, (error, data) => {
+  profSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -37,7 +37,7 @@ router.route('/edit-profile/:id').get((req, res) => {
 
 // Update Profile
 router.route('/update-profile/:id').put((req, res, next) => {
-  profileSchema.findByIdAndUpdate(req.params.id, {
+  profSchema.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => {
     if (error) {
@@ -51,7 +51,7 @@ router.route('/update-profile/:id').put((req, res, next) => {
 })
 // Delete Profile
 router.route('/delete-profile/:id').delete((req, res, next) => {
-  profileSchema.findByIdAndRemove(req.params.id, (error, data) => {
+  profSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {

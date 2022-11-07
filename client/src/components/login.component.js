@@ -30,9 +30,9 @@ export default class Login extends Component {
     const loginObject = {
       
       email: this.state.email,
-      passwoord: this.state.password
+      password: this.state.password
     };
-    axios.post('/logins/login', loginObject)
+    axios.post('http://localhost:4000/logins/login', loginObject)
       .then(res => console.log(res.data));
     this.setState({  email: '', password: '' })
   }
